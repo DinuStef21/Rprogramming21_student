@@ -147,10 +147,9 @@ In that case we can plot the data as a scatterplot (`geom_point()`)with
 
 
 
-
 ```{r}
-# Here your code
-
+ ggplot() +
+  geom_point(data = penguins, aes (x = flipper_length_mm, y = bill_length_mm)) 
 ```
 
 
