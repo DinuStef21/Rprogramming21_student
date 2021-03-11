@@ -84,8 +84,8 @@ we get rid of the NA's. You should recognize the "pipe operator" `%>%` from the 
 
 
 ```{r}
-  penguins <- penguins %>%
-  na.omit
+library(tidyverse)
+  penguins <- penguins %>% na.omit
 ```
 
 
