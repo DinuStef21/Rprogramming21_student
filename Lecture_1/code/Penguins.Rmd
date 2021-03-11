@@ -27,8 +27,8 @@ If you type `library(palmerpenguins)`, you can access the data. If you run this 
 This error message means that you did not install the package `palmerpenguins`. You can install the package by using the tab "Packages" at the middle of the right side of the screen. Then push the "Install" tab and find the package `palmerpenguins`.
 
 
-jnjnsdjndjndk
-1234567890
+
+
 ```{r}
 # Your code here
 
@@ -57,7 +57,7 @@ data("penguins")
 
 ```
 
-```{r} 1234567890
+```{r} 
 summary(penguins)
 ```
 
