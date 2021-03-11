@@ -85,7 +85,8 @@ we get rid of the NA's. You should recognize the "pipe operator" `%>%` from the 
 
 ```{r}
 library(tidyverse)
-  penguins <- penguins %>% na.omit
+penguins <- penguins %>% na.omit
+summary(penguins)
 ```
 
 
