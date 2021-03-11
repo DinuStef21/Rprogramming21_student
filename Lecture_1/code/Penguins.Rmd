@@ -163,8 +163,8 @@ We could experiment a bit with adding colors and shapes to this plot by trying t
 
 
 ```{r}
-
-# Here your code
+ggplot() +
+  geom_point(data = penguins, aes (x = flipper_length_mm, y = bill_length_mm, color = "red", size = 3))
 
 
 ```
