@@ -1,8 +1,10 @@
 ---
 title: "Lecture 1"
-subtitle: "Penguins visualisation"
 author: "Misja Mikkers and Gertjan Verhoeven"
-output: html_notebook
+subtitle: Penguins visualisation
+output:
+  pdf_document: default
+  html_notebook: default
 ---
 
 # Introduction
@@ -25,7 +27,7 @@ If you type `library(palmerpenguins)`, you can access the data. If you run this 
 This error message means that you did not install the package `palmerpenguins`. You can install the package by using the tab "Packages" at the middle of the right side of the screen. Then push the "Install" tab and find the package `palmerpenguins`.
 
 
-
+jnjnsdjndjndk
 
 ```{r}
 # Your code here
