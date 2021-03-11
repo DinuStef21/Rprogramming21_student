@@ -66,8 +66,7 @@ The dataset contains 8 variables about 344 individual penguins. If you want to k
 
 
 ```{r}
-# Your code here to explore the penguins dataset
-
+?penguins
 ```
 
 
@@ -85,9 +84,8 @@ we get rid of the NA's. You should recognize the "pipe operator" `%>%` from the 
 
 
 ```{r}
-
-# Your code here
-
+  penguins <- penguins %>%
+  na.omit
 ```
 
 
