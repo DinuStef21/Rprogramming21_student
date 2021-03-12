@@ -164,7 +164,7 @@ We could experiment a bit with adding colors and shapes to this plot by trying t
 
 ```{r}
 ggplot() +
-  geom_point(data = penguins, aes (x = flipper_length_mm, y = bill_length_mm, color = "red", size= 3))
+  geom_point(data = penguins, aes (x = flipper_length_mm, y = bill_length_mm, color = "red", size= 3), shape = 1)
 ```
 
 
@@ -178,7 +178,7 @@ It seems that there is a positive correlation between flipper length and bill le
 
 ```{r}
 ggplot() +
-  geom_point(data = penguins, aes (x = flipper_length_mm, y = bill_length_mm, male = "blue", female = "pink"))
+  geom_point(data = penguins, aes (x = flipper_length_mm, y = bill_length_mm, shape = sex, color = species))
 ```
 
 
