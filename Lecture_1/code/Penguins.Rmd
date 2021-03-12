@@ -227,7 +227,7 @@ We can split the plots per island by using for example
 
 ```{r}
 ggplot() +
-  geom_boxplot(data = penguins, aes(x = species, y = body_mass_g, fill = sex)) + labs(y = "body mass in grams")
+  geom_boxplot(data = penguins, aes(x = species, y = body_mass_g, fill = sex)) + labs(y = "body mass in grams") + facet_wrap(~ island)
 
 ```
 
@@ -250,8 +250,8 @@ _hint_: Why does scale_color_manual not work?
 
 
 ```{r}
-# Here your code
-
+ggplot() +
+  geom_boxplot(data = penguins, aes(x = species, y = body_mass_g, fill = sex)) + labs(y = "body mass in grams") + scale_fill_manual(values = c(male = "#DA020E", female = "mediumblue")) + facet_wrap(~ island)
 
 ```
 
