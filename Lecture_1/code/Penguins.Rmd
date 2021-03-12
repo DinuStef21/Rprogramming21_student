@@ -226,8 +226,8 @@ We can split the plots per island by using for example
 
 
 ```{r}
-# Here your code
-
+ggplot() +
+  geom_boxplot(data = penguins, aes(x = species, y = body_mass_g, fill = sex)) + labs(y = "body mass in grams")
 
 ```
 
