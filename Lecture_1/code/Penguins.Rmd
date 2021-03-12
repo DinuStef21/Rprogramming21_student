@@ -197,9 +197,8 @@ Finally,  we can add a theme (you can find some examples at https://ggplot2.tidy
 
 
 ```{r}
-
-# Here your code
-
+ggplot() +
+  geom_point(data = penguins, aes (x = flipper_length_mm, y = bill_length_mm, shape = sex, color = species)) + labs(title = "Gay Penguins", subtitle = "Plot by Dinu Stefanescu", caption = "Source: Penguins", x = "Flipper Lentgh", y = "Bill Length")
 ```
 
 
