@@ -1,7 +1,9 @@
 ---
 title: "Reading Data"
 author: "Misja Mikkers & Gertjan Verhoeven"
-output: html_notebook
+output:
+  pdf_document: default
+  html_notebook: default
 ---
 
 
@@ -140,8 +142,6 @@ and view the data if it looks correct.
 
 ```{r}
 football2 <- read.csv2("~/Desktop/Rprogramming21_student/Lecture_1/sourcedata/N1.csv", sep=",")
-
-
 ```
 
 
@@ -161,20 +161,19 @@ Try to google how to read in the excel file *football.xlsx* in the folder source
 
 
 ```{r}
-# Here your code
-
+football_points <- read_excel("~/Desktop/Rprogramming21_student/Lecture_1/sourcedata/football.xlsx")
 ```
-
-
-
+```{r}
+head(football_points)
+```
 
 Looking at the data, we see that the _Excel_ sheet is read in to a dataframe including empty rows and a column name "Eredivisie 2015/2016" that is not necessary and a strange column name "...2". We can repair this using the package `dplyr` (which is part of the package `tidyverse`), but we can also use the argument `skip` (just before the bracket). In this case we do not want to read the first 3 rows into our dataframe. So in this case you should add `skip = 3` to your command.
 
 
 ```{r}
-# Here your code
+football_points <- read_excel("~/Desktop/Rprogramming21_student/Lecture_1/sourcedata/football.xlsx", skip = 3)
 
-
+head(football_points)
 ```
 
 
