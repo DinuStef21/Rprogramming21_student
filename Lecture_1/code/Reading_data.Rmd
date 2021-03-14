@@ -197,7 +197,7 @@ It is possible to write a dataframe as a _csv_ file by using the command `write.
 
 ```{r}
 
-write.csv2(football, file = "../sourcedata/Myfootballdata.csv")
+write.csv2(football, file = "~/Desktop/Rprogramming21_student/Lecture_1/sourcedata/Myfootballdata.csv")
 
 ```
 
@@ -220,8 +220,8 @@ First, read in *gender.csv* from the folder *sourcedata* as a dataframe with the
 
 
 ```{r}
-# Here your code
-
+gender <- read.csv2("~/Desktop/Rprogramming21_student/Lecture_1/sourcedata/gender.csv")
+head(gender)
 ```
 
 
@@ -229,8 +229,7 @@ and then check the structure of the dataframe `gender`
 
 
 ```{r}
-# Here your code
-
+str(gender)
 ```
 
 
@@ -259,8 +258,7 @@ By using `str()` again we can check if we succeeded:
 
 
 ```{r}
-# Here your code
-
+str(gender)
 
 ```
 
@@ -277,13 +275,11 @@ and then check the structure of your data and view the data
 
 
 ```{r}
-# Here your code
-
+gender$Number1 <- as.numeric(gender$Number)
 ```
 
 ```{r}
-# Here your code
-
+str(gender)
 
 ```
 
@@ -305,7 +301,9 @@ Tip: Please remember *never* change a factor variable directly into a numeric!
 With the command `summary(name_dataframe)`, you will get a summary of your dataset:
 
 Show the summary of the football dataframe
-
+```{r}
+summary(gender)
+```
 
 End of Notebook
 
