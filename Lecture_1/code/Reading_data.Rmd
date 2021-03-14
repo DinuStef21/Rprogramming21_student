@@ -12,8 +12,8 @@ We need a package to read in the excel files. I tend to make a Package section i
 
 
 ```{r}
-# Here your code
-
+library(readxl)
+library(tidyverse)
 
 ```
 
@@ -65,8 +65,7 @@ Assignment: read in the file "voetbal.csv" from the folder sourcedata and call t
 
 
 ```{r}
-# Here your code
-
+your_dataframe <- read.csv2("My Mac (Dinu's MacBook Air)/Rprogramming21_student/Lecture_1/sourcedata/Myfootballdata.csv")
 
 ```
 
