@@ -65,8 +65,7 @@ Assignment: read in the file "voetbal.csv" from the folder sourcedata and call t
 
 
 ```{r}
-your_dataframe <- read.csv2("My Mac (Dinu's MacBook Air)/Rprogramming21_student/Lecture_1/sourcedata/Myfootballdata.csv")
-
+football <- read.csv2("~/Desktop/Rprogramming21_student/Lecture_1/sourcedata/voetbal.csv")
 ```
 
 
@@ -76,9 +75,7 @@ By typing `football` we can view the data. Try to view the data.
 
 
 ```{r}
-# Here your code
-
-
+football
 ```
 
 
@@ -88,17 +85,12 @@ To just get an impression of the data frame we could either use `head(name of th
 
 
 ```{r}
-# Here your code
-
-
+head(football)
 ```
 
 
 ```{r}
-# Here your code
-
-
-
+tail(football)
 ```
 
 
@@ -112,9 +104,7 @@ Try to read in the `N1.csv` as done above and call the dataframe football1 (we h
 
 
 ```{r}
-# Here your code
-
-
+football1 <- read.csv2("~/Desktop/Rprogramming21_student/Lecture_1/sourcedata/N1.csv")
 ```
 
 
@@ -123,11 +113,7 @@ And have a look at the data with `head(football1)`
 
 
 ```{r}
-
-# Here your code
-
-
-
+head(football1)
 ```
 
 
@@ -153,16 +139,14 @@ and view the data if it looks correct.
 
 
 ```{r}
-# Here your code
+football2 <- read.csv2("~/Desktop/Rprogramming21_student/Lecture_1/sourcedata/N1.csv", sep=",")
 
 
 ```
 
 
 ```{r}
-# Here your code
-
-
+head(football2)
 ```
 
 
