@@ -201,9 +201,13 @@ _hint_: check `?select` for help if needed.
 
 
 ```{r}
-# Here your code
+df3 <- gapminder %>%
+  select(matches("o"), year) %>%
+  arrange(desc(pop)) %>%
+  mutate(ranking = 1: length(country)) %>%
+  filter (ranking == 27 | ranking == 531)
 
-
+df3
 ```
 
 
@@ -239,9 +243,17 @@ Assignment:
 
 
 ```{r}
-# Here your code
+df4 <- gapminder %>%
+  group_by(continent) %>%
+  filter(year == 2007) %>%
+  summarise(Mean_LE = mean(lifeExp), Mean_GDP = mean(gdpPercap)) %>%
+  arrange(Mean_GDP)
+  
+  
 
 
+
+df4
 ```
 
 
@@ -273,8 +285,11 @@ _hint 3_: You need to change some labels. To get the line breaks in the legend, 
 
 
 ```{r}
-# Here your code
-
+ggplot() +
+  geom_point(data = df4, aes(x = Mean_LE, y = reorder(continent, Mean_LE), size = Mean_GDP), color = "blue") + 
+  geom_segment(data = df4, aes(x = 0, y = continent, xend = Mean_LE, yend = continent), color = "blue") +
+  theme_bw() +
+  labs(caption = "source: gapminder dataset", y = "", x = "weighted mean of life expectancy", size = "weighted mean\nof GDP\nper capita")
 
 ```
 
@@ -295,11 +310,54 @@ Hints:
 
 
 ```{r}
-# Here your code
+Countries_plot <- c("Netherlands", "Swaziland", "United States", "Japan", "Pakistan", "Chile", "Guinea-Bissau", "China", "India", "Spain", "Mexico")
 
+df6 <- gapminder %>%
+  filter(year == 2007 & !country %in% Countries_plot)
 
+df7 <- gapminder %>%
+  filter(year == 2007 & country %in% Countries_plot)
+
+df6
+
+df7
+
+ggplot(df7, aes(x = gdpPercap, y = lifeExp, color = continent, size = pop)) + scale_x_log10() + geom_point()
+
+ggplot(df6, aes(x= log(gdpPercap), y = lifeExp, color = continent, size = pop)) + geom_point()
+
+ggplot() + geom_point(df6, mapping = aes(x= log(gdpPercap), y = lifeExp, color = continent, size = pop))
+
+ggplot(df7, aes(x = gdpPercap, y = lifeExp, color = continent, size = pop, label = country)) +
+  scale_x_log10() +
+  geom_point(df6, mapping = aes(x= gdpPercap, y = lifeExp, color = continent, size = pop)) +  
+  scale_x_log10() +
+  geom_point()
+
+ggplot(df7, aes(x = gdpPercap, y = lifeExp, color = continent, size = pop, label = country)) +
+  geom_point(df6, mapping = aes(x= gdpPercap, y = lifeExp, color = continent, size = pop)) +  
+  scale_x_log10() +
+  geom_point()
+
+ggplot(df7, aes(x = gdpPercap, y = lifeExp, color = continent, size = pop, label = country)) +
+  scale_x_log10() +
+  geom_point(df6, mapping = aes(x= gdpPercap, y = lifeExp, color = continent, size = pop)) +  
+  geom_point()
+
+ggplot(df7, aes(x = gdpPercap, y = lifeExp, color = continent, size = pop, label = country)) +
+  geom_point(df6, mapping = aes(x= gdpPercap, y = lifeExp, color = continent, size = pop)) +  
+  geom_point()
+
+ggplot(df7, aes(x = log(gdpPercap), y = lifeExp, color = continent, size = pop)) +
+  geom_point(df6, mapping = aes(x= log(gdpPercap), y = lifeExp, color = continent, size = pop)) +
+    geom_point()
 ```
 
+```
+ggplot(df7, aes(x = gdpPercap, y = lifeExp, color = continent, size = pop, label = country)) + scale_x_log10() + geom_point()
 
+ +
+  geom_point(df6, aes(x= log(gdpPercap), y = lifeExp, color = continent, size = pop)) + 
+    geom_point()
 
 # End of notebook
