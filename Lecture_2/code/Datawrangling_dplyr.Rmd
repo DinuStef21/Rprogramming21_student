@@ -155,10 +155,9 @@ Assignment:
 
 
 ```{r}
-
-# Here your code
-
-
+df2 <- gapminder %>%
+  mutate(Netherlands = as.factor(ifelse(country == "Netherlands", 1, 0)))
+df2
 ```
 
 
@@ -174,9 +173,11 @@ _hint_ : don't forget to add a nice theme.
 
 
 ```{r}
-# Here your code
-
-
+ggplot(df2, aes(x = year, y = lifeExp, group = country, color = Netherlands, alpha = Netherlands)) + 
+  geom_line() + 
+  scale_color_manual(values = c("1" = "blue", "0" = "grey")) + 
+  scale_alpha_manual(values = c("1"= 1, "0" = 0.3 )) +
+  theme_bw()
 ```
 
 
