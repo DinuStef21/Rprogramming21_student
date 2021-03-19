@@ -318,21 +318,7 @@ df6 <- gapminder %>%
 df7 <- gapminder %>%
   filter(year == 2007 & country %in% Countries_plot)
 
-df6
 
-df7
-
-ggplot(df7, aes(x = gdpPercap, y = lifeExp, color = continent, size = pop)) + scale_x_log10() + geom_point()
-
-ggplot(df6, aes(x= log(gdpPercap), y = lifeExp, color = continent, size = pop)) + geom_point()
-
-ggplot() + geom_point(df6, mapping = aes(x= log(gdpPercap), y = lifeExp, color = continent, size = pop))
-
-ggplot(df7, aes(x = gdpPercap, y = lifeExp, color = continent, size = pop, label = country)) +
-  scale_x_log10() +
-  geom_point(df6, mapping = aes(x= gdpPercap, y = lifeExp, color = continent, size = pop)) +  
-  scale_x_log10() +
-  geom_point()
 
 ggplot(df7, aes(x = gdpPercap, y = lifeExp, color = continent, size = pop, label = country)) +
   geom_point(df6, mapping = aes(x= gdpPercap, y = lifeExp, color = continent, size = pop)) +  
@@ -348,9 +334,17 @@ ggplot(df7, aes(x = gdpPercap, y = lifeExp, color = continent, size = pop, label
   geom_point(df6, mapping = aes(x= gdpPercap, y = lifeExp, color = continent, size = pop)) +  
   geom_point()
 
-ggplot(df7, aes(x = log(gdpPercap), y = lifeExp, color = continent, size = pop)) +
+ggplot(df7, aes(x = log(gdpPercap), y = lifeExp, color = continent, size = pop, label = country)) +
   geom_point(df6, mapping = aes(x= log(gdpPercap), y = lifeExp, color = continent, size = pop)) +
     geom_point()
+
+ggplot(df7, aes(x = log(gdpPercap), y = lifeExp, color = continent, size = pop, label = country)) +
+  geom_point(df6, mapping = aes(x= log(gdpPercap), y = lifeExp, color = continent, size = pop)) +
+    geom_point() +
+  geom_text_repel(color = "black", size = 3, min.segment.length = unit(0, 'lines'), nudge_y = .2) + theme_bw() +
+  labs(caption = "source : gapminder", size = "population", y = "Life expectancy", x = "Log of GDP per capita")
+
+
 ```
 
 ```
