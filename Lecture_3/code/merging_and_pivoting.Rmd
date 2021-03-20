@@ -249,7 +249,8 @@ Now try to paste the second dataframe to the first one, using `rbind()`.
 
 ```{r}
 
-rbind(data1a, data2a)
+rbind(data1, data1a)
+
 
 ```
 
@@ -302,12 +303,22 @@ _hint_: see hint above
 _hint_: You could use `filter()`, however in this case `slice()` could be a good option.
 
 
+ibrary(readxl)
+OECD_Health_Statistics_2020_Frequently_Requested_Data <- read_excel("Desktop/Rprogramming21_student/Lecture_3/sourcedata/OECD-Health-Statistics-2020-Frequently-Requested-Data.xls", 
+    sheet = "Curr exp, per capita US$PPP")
+View(OECD_Health_Statistics_2020_Frequently_Requested_Data)
 
 
 ```{r}
 
-# Here your code
+df1 <- read_xls("~/Desktop/Rprogramming21_student/Lecture_3/sourcedata/OECD-Health-Statistics-2020-Frequently-Requested-Data.xls", sheet = 3, skip = 3)
 
+df1 <- df1 %>%
+  rename("Country" = "...1", '2019' = "2019...51") %>%
+  select("Country", '2011':'2019') %>%
+  slice(n = 1:5)
+
+df1
 
 ```
 
@@ -351,8 +362,12 @@ _hint_: Remember that colum names with numbers should be written as `2011` to pr
 
 ```{r}
 
-# Here your code
+df2 <- df1 %>%
+  pivot_longer(!Country, names_to = "Year", values_to = "Expenditure")
 
+df2$Year <- as.integer(df2$Year)
+
+df2
 
 ```
 
@@ -395,8 +410,11 @@ Don't forget change the labels and the x-axis and choose a theme of your liking.
 
 
 ```{r}
-# Here your code
-
+ggplot(df2, aes(x = Year, y = Expenditure, group = Country, color = Country)) +
+  geom_line() +
+  labs(x = "", y = "Expenditure per capita in PPP") +
+  scale_x_continuous(breaks = 2011:2019) +
+  theme_bw()
 
 ```
 
@@ -412,8 +430,10 @@ Make a new data frame df3, based on df2 with only the observations of the year 2
 
 ```{r}
 
-# Here your code
+df3 <- df2 %>%
+  filter(Year == 2018 | Year == 2019)
 
+df3
 
 ```
 
@@ -440,8 +460,11 @@ Make a new wide data frame df4 which looks like table above based on the long da
 
 
 ```{r}
-# Here your code
+df4 <- df3 %>%
+  pivot_wider(names_from = Year, values_from = Expenditure)
 
+
+df4
 
 
 ```
@@ -456,8 +479,10 @@ _hint_ note the `` around the variable names.
 
 
 ```{r}
-# Here your code
+df5 <- df4 %>%
+  mutate(Growth = (`2019` - `2018`)/`2018`)
 
+df5
 
 ```
 
@@ -471,7 +496,9 @@ Recreate this plot:
 
 
 ```{r}
-# Here your code
+ggplot(df5, aes(x = reorder(Country, desc(Growth)), y = Growth, color = Country, fill = Country)) +
+  geom_col() +
+  labs(x = "", legend.title = element_blank())
 
 
 
