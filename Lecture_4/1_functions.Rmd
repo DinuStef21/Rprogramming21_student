@@ -10,8 +10,7 @@ output: html_notebook
 For this notebook we need the  `tidyverse` package (which should already be installed) .
 
 ```{r}
-# Your code here
-
+library(tidyverse)
 ```
 
 
@@ -56,7 +55,10 @@ mean(my_data, na.rm = TRUE)
 ## Exercise 1: 
 
 Find out what the arguments are for the `sum()` function. Which arguments are required, and which are optional?
-
+```{r}
+?sum
+?log
+```
 
 
 ## Exercise 2:
@@ -74,11 +76,11 @@ Predict which of the following calls will work.
 Then test your predictions by running the function calls in the R chunk below.
 
 ```{r}
-# log(x = 100, 10)
-# log(100)
-# log(base = exp(1))
-# log(exp(1)^3, exp(1))
-# log(base = 10, x = 100)
+ log(x = 100, 10)
+ log(100)
+ log(base = exp(1))
+ log(exp(1)^3, exp(1))
+ log(base = 10, x = 100)
 ```
 
 
@@ -138,10 +140,9 @@ Create a function `paste_together` that takes two variables as 'input' and paste
 
 ```{r}
 # function 'paste_together' can paste two strings together
-paste_together <- function (...) {
+paste_together <- function (x,y) {
 
-# your code here
-  
+paste(x,y)  
 }
 
 # Test your function by excuting the code below
