@@ -260,8 +260,19 @@ Use `readRDS()` to read in the dataset, and use the commands you learned earlier
 How many distinct reporter countries does your filtered dataset contain?
 
 ```{r}
-# your code here
+clothing_exports <- readRDS("~/Desktop/Rprogramming21_student/Lecture_4/sourcedata/clothing_exports_aggregated.rds")
+
+
+df_2018 <- clothing_exports %>%
+  filter(year == 2018)
+
+df_2018
+
+
 ```
+
+
+
 
 
 
