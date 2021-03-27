@@ -268,6 +268,7 @@ df_2018 <- clothing_exports %>%
 
 df_2018
 
+unique(df_2018$reporter_fullname_english)
 
 ```
 
