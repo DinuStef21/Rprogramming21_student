@@ -143,7 +143,6 @@ Create a function `paste_together` that takes two variables as 'input' and paste
 ```{r}
 # function 'paste_together' can paste two strings together
 paste_together <- function (x,y) {
-
 paste(x,y)  
 }
 
@@ -200,6 +199,15 @@ Create a function that for the numbers _x_ to _x + 10_ calls the function `squar
 
 # test your new function
 # my_func(2)
+
+my_func <- function(x){
+  total <- 0
+  for(i in x:(x+10)){
+    total <- square_plus(i)}
+  print(total)
+}
+
+my_func(2)
 ```
 
 
@@ -221,9 +229,9 @@ vec <- c(2, 4, 6, 9)
 
 ```{r}
 # my cool new function
-my_func <- function(x){
+my_func <- function(x){mean(x^2) - (mean(x))^2}
   # your code here
-}
+
 
 # test your function, 
 N <- length(vec)
